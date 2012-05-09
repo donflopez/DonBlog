@@ -1,0 +1,5 @@
+.DS_Store
+node_modules/
+uploads/
+._.DS_Store
+._.*
