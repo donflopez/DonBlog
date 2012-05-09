@@ -20,7 +20,7 @@ ToDo: Mmmmm...
 function route (app) {
 	
 	app.get('/', function(req, res){
-		res.send('Hello world');
+		res.render('./normal/home');
 	});
 
 }

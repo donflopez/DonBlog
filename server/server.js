@@ -12,6 +12,7 @@ ToDo: Mmmmm...
 //Añadimos nuestras principales armas para el desarrollo.
 var express = require('../node_modules/express');
 var io = require('../node_modules/socket.io');
+var start = require('../controllers/onstart');
 
 function init (routes, database) {
 	//Iniciamos la base de datos.

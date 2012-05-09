@@ -6,6 +6,40 @@ var UserSchema = new Schema({
 }),
   User;
 
+var ConfigSchema = new Schema({
+                         installed : Boolean
+                       , name : String
+                       })
+                     , Config;
+
+var ProyectSchema = new Schema({
+                          name : String
+                        , description : String
+                        , link : String
+                        , image : String
+                        })
+                      , Proyect;
+
+var PageSchema = new Schema({
+                      work : String
+                    , proyects : [Proyect]
+                    , bio : String
+                    })
+                   , Page;
+
+//EditorSchema
+
+var EditorSchema = new Schema({
+                        userId : ObjectId
+                      , name : String
+                      , avatar : String
+                      , posts : Number
+                      , description : String
+                      , page : String
+                      })
+                     , Editor;
+
+
 var mongooseAuth = require('../node_modules/mongoose-auth');
 
 UserSchema.plugin(mongooseAuth, {
@@ -71,18 +105,24 @@ UserSchema.plugin(mongooseAuth, {
 
 
 mongoose.model('User', UserSchema);
+mongoose.model('Editor', EditorSchema);
 
   mongoose.connect('mongodb://localhost/mydatabase');
   User = mongoose.model('User');
+  Editor = mongoose.model('Editor');
 
 function init () {
   mongoose.model('User', UserSchema);
+  mongoose.model('Editor', EditorSchema);
 
   mongoose.connect('mongodb://localhost/mydatabase');
   User = mongoose.model('User');
+  Editor = mongoose.model('Editor');
+
 }
 
 exports.User = User;
+exports.Editor = Editor;
 
 exports.mongooseAuth = mongooseAuth;
 
