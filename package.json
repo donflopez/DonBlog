@@ -1,0 +1,23 @@
+{
+   "name": "DonBlog",
+   "version": "0.0.1",
+   "description": "Simple blog",
+   "repository": "",
+   "author": "Francisco López <donflopez@gmail.com> (http://donflopez.tuccistore.es)",
+   "dependencies": {
+      "connect": ">= 1.8.5",
+      "everyauth": "0.2.32",
+      "express": "2.5.9",
+      "mongoose": "2.6.3",
+      "mongoose-auth": ">= 0.0.12",
+      "ua-parser": ">= 0.2.3",
+      "emailjs": ">= 0.2.8",
+      "jade": ">= 0.20.3",
+      "socket.io": ">= 0.9"
+    },
+   "devDependencies": {
+
+   },
+   "main": "app",
+   "engines": { "node": ">= 0.6.4 < 0.7.0" }
+}
