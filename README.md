@@ -1,5 +1,5 @@
 # Donblog
 
-Simple node blog app usign [express](expressjs.com), [Socket.io](socket.io) and [Backbone.js](documentcloud.github.com/backbone).
+Simple node blog app usign [express](http://expressjs.com), [Socket.io](http://socket.io) and [Backbone.js](http://documentcloud.github.com/backbone).
 
-This app it's made for my personal blog and I made a tutorial with this.
+This app it's made for my personal blog and I'll make a tutorial with this.
