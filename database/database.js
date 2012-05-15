@@ -24,8 +24,11 @@ var PageSchema = new Schema({
                       work : String
                     , proyects : [Proyect]
                     , bio : String
+                    , twitter : String
+                    , github : String
+                    , linkedIn : String
                     })
-                   , Page;
+                  , Page;
 
 //EditorSchema
 
@@ -106,23 +109,28 @@ UserSchema.plugin(mongooseAuth, {
 
 mongoose.model('User', UserSchema);
 mongoose.model('Editor', EditorSchema);
+mongoose.model('Page', PageSchema);
 
   mongoose.connect('mongodb://localhost/mydatabase');
   User = mongoose.model('User');
   Editor = mongoose.model('Editor');
+  Page = mongoose.model('Page');
 
 function init () {
   mongoose.model('User', UserSchema);
   mongoose.model('Editor', EditorSchema);
+  mongoose.model('Page', PageSchema);
 
   mongoose.connect('mongodb://localhost/mydatabase');
   User = mongoose.model('User');
   Editor = mongoose.model('Editor');
+  Page = mongoose.model('Page');
 
 }
 
 exports.User = User;
 exports.Editor = Editor;
+exports.Page = Page;
 
 exports.mongooseAuth = mongooseAuth;
 

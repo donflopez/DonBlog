@@ -1,5 +1,8 @@
 var db = require('../database/database');
 
+//ToDo: Add support for 2 or more editors and pages.
+
+
 function initEditor (){
 	var editor = new db.Editor();
   		editor.userId = null;
@@ -7,8 +10,18 @@ function initEditor (){
   		editor.avatar = '/img/avatar/undefined.png';
   		editor.posts = 0;
   		editor.description = 'Description of the author.';
-  		editor.page = '/aboutme';
+  		editor.page = '/aboutme/';
   		editor.save();
+}
+
+function initEditorPage (){
+  var page = new db.Page();
+      page.work = 'Explain your work, your professional life.';
+      page.bio = 'Say your bio';
+      page.twitter = '@donflopez';
+      page.github = 'https://github.com/donflopez';
+      page.linkedIn = 'http://www.linkedin.com/profile/view?id=48616371&trk=tab_pro';
+      page.save();
 }
 
 db.Editor.findOne({}, function(err, editor){
@@ -22,12 +35,28 @@ db.Editor.findOne({}, function(err, editor){
 	}
 });
 
+db.Page.findOne({}, function(err, page){
+  console.log('Comprobando que el editor tenga una página:');
+  if(page){
+    console.log('\t El editor tiene una página.');
+  }
+  else{
+    initEditorPage();
+    console.log('\t Página del editor creada.');
+  }
+});
+
 module.exports = {
     getEditor : function (cb) {
 		db.Editor.findOne({}, function(err, editor){
 			cb(editor);
 		});
 	}
+  , getEditorPage : function (cb) {
+      db.Page.findOne({}, function(err, page){
+        cb(page);
+      });
+  }
   , newEditor : function (data, cb){
   		var editor = new db.Editor();
   		editor.userId = data.userId;
@@ -45,7 +74,18 @@ module.exports = {
 	  		editor.avatar = data.avatar;
 	  		editor.description = data.description;
 	  		editor.save();
-	  		cb();
+	  		cb(editor);
   		});
+  }
+  , editEditorPage : function (data, cb){
+      db.Page.findOne({}, function(err, page){
+        page.work = data.work;
+        page.bio = data.bio;
+        page.twitter = data.twitter;
+        page.github = data.github;
+        page.linkedIn = data.linkedIn;
+        page.save();
+        cb(page);
+      })
   }
 }
