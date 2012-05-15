@@ -10,7 +10,7 @@ ToDo: Mmmmm...
 *******************/
 
 //Import controllers
-
+var cGeneral = require('../controllers/cGeneral');
 
 
 /*==================
@@ -21,6 +21,10 @@ function route (app) {
 	
 	app.get('/', function(req, res){
 		res.render('./normal/home');
+	});
+
+	app.get('/aboutme', function(req, res){
+		cGeneral.buildEditorPage(req, res);
 	});
 
 }
