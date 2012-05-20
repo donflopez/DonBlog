@@ -1,7 +1,20 @@
-var editor = require('../models/mEditor');
+var editor = require('../models/mEditor')
+  , site = require('../models/mSite');
 
 module.exports = {
-	buildEditorPage : function (req, res) {
+	  helperLayout : function (app) {
+		var help = {};
+		site.data(function(site){
+			help.site = site;
+			app.helpers({
+			   help : help
+			});
+		});
+	}
+
+	//This function return the editor page with all of
+	//necesary data.
+	, buildEditorPage : function (req, res) {
 		editor.getEditor(function(aEditor){
 			editor.getEditorPage(function(page){
 				var data = {};

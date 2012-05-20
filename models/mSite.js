@@ -21,5 +21,9 @@ db.Site.findOne({}, function(err, site){
 });
 
 module.exports = {
-	
+	data : function (cb) {
+		db.Site.findOne({}, function(err, site){
+			cb(site);
+		});
+	}
 }

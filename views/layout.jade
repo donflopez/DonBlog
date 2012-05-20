@@ -13,10 +13,7 @@ html
 		script(src='/bs/js/bootstrap.min.js')
 	body
 		header
-			.span10
-				p Hola
-			.span2
-				.thumbnail
-					img(src='/img/avatar/undefined.png')
-
+			.nav
+				- each link in help.site.nav
+					a(href=link.direction) #{link.name}
 		!=body
