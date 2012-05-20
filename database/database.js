@@ -6,6 +6,18 @@ var UserSchema = new Schema({
 }),
   User;
 
+var LinkSchema = new Schema({
+                      name: String
+                    , direction: String
+}),
+  Link;
+
+var SiteSchema = new Schema({
+                        nav: [Link]
+                      , copy: String
+                     })
+                    , Site;
+
 var ConfigSchema = new Schema({
                          installed : Boolean
                        , name : String
@@ -110,27 +122,32 @@ UserSchema.plugin(mongooseAuth, {
 mongoose.model('User', UserSchema);
 mongoose.model('Editor', EditorSchema);
 mongoose.model('Page', PageSchema);
+mongoose.model('Site', SiteSchema);
 
   mongoose.connect('mongodb://localhost/mydatabase');
   User = mongoose.model('User');
   Editor = mongoose.model('Editor');
   Page = mongoose.model('Page');
+  Site = mongoose.model('Site');
 
 function init () {
   mongoose.model('User', UserSchema);
   mongoose.model('Editor', EditorSchema);
   mongoose.model('Page', PageSchema);
+  mongoose.model('Site', SiteSchema);
 
   mongoose.connect('mongodb://localhost/mydatabase');
   User = mongoose.model('User');
   Editor = mongoose.model('Editor');
   Page = mongoose.model('Page');
+  Site = mongoose.model('Site');
 
 }
 
 exports.User = User;
 exports.Editor = Editor;
 exports.Page = Page;
+exports.Site = Site;
 
 exports.mongooseAuth = mongooseAuth;
 
