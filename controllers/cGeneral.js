@@ -1,5 +1,6 @@
 var editor = require('../models/mEditor')
-  , site = require('../models/mSite');
+  , site = require('../models/mSite')
+  , post = require('../models/mPost');
 
 module.exports = {
 	  helperLayout : function (app) {
@@ -9,6 +10,14 @@ module.exports = {
 			app.helpers({
 			   help : help
 			});
+		});
+	}
+
+	, buildHome : function (req, res) {
+		post.fiveLatestPost(function(posts){
+			var data = {};
+			data.posts = posts;
+			res.render('./normal/home', data);
 		});
 	}
 

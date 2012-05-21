@@ -1,5 +1,9 @@
 body {
   background-color: #F7F2E0;
+  color: #49281f;
+}
+label {
+  color: #49281f;
 }
 .body {
   margin: 0 auto;
@@ -44,4 +48,8 @@ h1 {
   margin-top: 3px;
   font-size: 15px;
   color: #49281f;
+}
+/*  Posts  */
+.post h1 {
+  font-size: 45px;
 }

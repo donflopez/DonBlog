@@ -1,0 +1,18 @@
+.span5
+	form(action='/login', method='POST')
+		label(for=everyauth.password.loginFormFieldName) Email:
+		input(type='text', name=everyauth.password.loginFormFieldName)
+		label(for=everyauth.password.passwordFormFieldName) Contraseña:
+		input(type='password', name=everyauth.password.passwordFormFieldName)
+		input(type='submit', value='Acceder')
+.span4
+	form(action='/register', method='POST', autocomplete="off").form-horizontal
+		label(for='name.first') Nombre:
+		input(type='text', name='name.first')
+		label(for='name.last') Apellidos:
+		input(type='text', name='name.last')
+		label(for=everyauth.password.loginFormFieldName) Email:
+		input(type='text', name=everyauth.password.loginFormFieldName)
+		label(for=everyauth.password.passwordFormFieldName) Contraseña:
+		input(type='password', name=everyauth.password.passwordFormFieldName)
+		input(type='submit', value='Registrarme')

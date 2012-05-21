@@ -6,6 +6,25 @@ var UserSchema = new Schema({
 }),
   User;
 
+var CommentSchema = new Schema({
+                        user: ObjectId
+                      , date: Date
+                      , body: String
+                     })
+                    , Comment;
+
+var PostSchema = new Schema({
+                      title: String
+                    , body: String
+                    , date: Date
+                    , author: ObjectId
+                    , tag: [String]
+                    , lastEdited: Date
+                    , comments: [Comment]
+                    , category: String
+                    }),
+                      Post;
+
 var LinkSchema = new Schema({
                       name: String
                     , direction: String
@@ -79,10 +98,10 @@ UserSchema.plugin(mongooseAuth, {
       , everyauth: {
             getLoginPath: '/login'
           , postLoginPath: '/login'
-          , loginView: 'home.jade'
+          , loginView: 'normal/logreg.jade'
           , getRegisterPath: '/register'
           , postRegisterPath: '/register'
-          , registerView: 'register.jade'
+          , registerView: 'normal/logreg.jade'
           , loginSuccessRedirect: '/'
           , registerSuccessRedirect: '/'
           , authenticate: function (login, password){
@@ -123,24 +142,28 @@ mongoose.model('User', UserSchema);
 mongoose.model('Editor', EditorSchema);
 mongoose.model('Page', PageSchema);
 mongoose.model('Site', SiteSchema);
+mongoose.model('Post', PostSchema);
 
   mongoose.connect('mongodb://localhost/mydatabase');
   User = mongoose.model('User');
   Editor = mongoose.model('Editor');
   Page = mongoose.model('Page');
   Site = mongoose.model('Site');
+  Post = mongoose.model('Post');
 
 function init () {
   mongoose.model('User', UserSchema);
   mongoose.model('Editor', EditorSchema);
   mongoose.model('Page', PageSchema);
   mongoose.model('Site', SiteSchema);
+  mongoose.model('Post', PostSchema);
 
   mongoose.connect('mongodb://localhost/mydatabase');
   User = mongoose.model('User');
   Editor = mongoose.model('Editor');
   Page = mongoose.model('Page');
   Site = mongoose.model('Site');
+  Post = mongoose.model('Post');
 
 }
 
@@ -148,6 +171,7 @@ exports.User = User;
 exports.Editor = Editor;
 exports.Page = Page;
 exports.Site = Site;
+exports.Post = Post;
 
 exports.mongooseAuth = mongooseAuth;
 

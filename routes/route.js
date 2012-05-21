@@ -21,7 +21,7 @@ function route (app) {
 	cGeneral.helperLayout(app);
 	
 	app.get('/', function(req, res){
-		res.render('./normal/home');
+		cGeneral.buildHome(req, res);
 	});
 
 	app.get('/aboutme', function(req, res){

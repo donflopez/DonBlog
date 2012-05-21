@@ -25,24 +25,24 @@ function initEditorPage (){
 }
 
 db.Editor.findOne({}, function(err, editor){
-	console.log('Comprobando el editor: ');
+	console.log('Checking editor: ');
 	if(editor){
-		console.log('\t Hay un editor.');
+		console.log('\t There is a editor.');
 	}
 	else {
 		initEditor();
-		console.log('\t Editor por defecto creado.');
+		console.log('\t Default editor created.');
 	}
 });
 
 db.Page.findOne({}, function(err, page){
-  console.log('Comprobando que el editor tenga una página:');
+  console.log('Checking aboutme of editor:');
   if(page){
-    console.log('\t El editor tiene una página.');
+    console.log('\t There is a page.');
   }
   else{
     initEditorPage();
-    console.log('\t Página del editor creada.');
+    console.log('\t Editor page created.');
   }
 });
 

@@ -1,3 +1,4 @@
-console.log('Inicializando servidor.');
-var editor = require('../models/mEditor');
-var site = require('../models/mSite');
+console.log('Starting server.');
+var editor = require('../models/mEditor')
+  , site = require('../models/mSite')
+  , post = require('../models/mPost');
