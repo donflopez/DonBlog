@@ -16,4 +16,9 @@ html
 			.nav
 				- each link in help.site.nav
 					a(href=link.direction) #{link.name}
-		!=body
+				- if (everyauth.loggedIn)
+					a().login.user Usuario
+				- else
+					a(href='/login').login Accede
+		.body
+			!=body
