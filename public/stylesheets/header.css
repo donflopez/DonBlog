@@ -84,3 +84,7 @@ h1 {
   margin-bottom: 0px;
   font-size: 12px;
 }
+/*   Page   */
+#profile {
+  float: right;
+}

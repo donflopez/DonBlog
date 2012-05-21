@@ -18,7 +18,7 @@ function initEditorPage (){
   var page = new db.Page();
       page.work = 'Explain your work, your professional life.';
       page.bio = 'Say your bio';
-      page.twitter = '@donflopez';
+      page.twitter = 'donflopez';
       page.github = 'https://github.com/donflopez';
       page.linkedIn = 'http://www.linkedin.com/profile/view?id=48616371&trk=tab_pro';
       page.save();

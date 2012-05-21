@@ -10,13 +10,13 @@ function initSite (){
 }
 
 db.Site.findOne({}, function(err, site){
-	console.log('Comprobando el sitio: ');
+	console.log('Checking site: ');
 	if(site){
-		console.log('\t Hay un sitio.');
+		console.log('\t There is a site.');
 	}
 	else {
 		initSite();
-		console.log('\t Sitio creado.');
+		console.log('\t Site created.');
 	}
 });
 
