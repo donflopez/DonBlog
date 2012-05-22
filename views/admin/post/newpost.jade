@@ -1,0 +1,13 @@
+#left
+	.back &larr; Go Back
+	form(action='/newpost', method='POST')
+		input(type='text', name='title', id='title', placeholder='Title here...')
+		textarea(name='body', id='body', placeholder='Put here the content of your post')
+		input(type='text', name='tag', id='tag', placeholder='Tags separated by spaces')
+		input(type='text', name='category', id='category', placeholder='Example')
+		input(type='checkbox', name='isDraft', id='draft', value='1')
+		span Draft
+		input(type='submit', id='send', value='Save Post')
+#menu
+	.info
+		p Estás a punto de crear un nuevo post.

@@ -17,7 +17,7 @@
 	img(src=editor.avatar)
 	span Posts: #{editor.posts}
 	p #{editor.description}
+	a(href='https://twitter.com/'+page.twitter.substring(1,page.twitter.length), data-show-count='true', data-lang='es', data-size='short').twitter-follow-button #{editor.twitter}
 
-	a(href='https://twitter.com/'+page.twitter.substring(1,page.twitter.length), data-show-count='true', data-lang='es', data-size='large').twitter-follow-button Seguir a #{editor.twitter}
 script
 	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");

@@ -33,4 +33,8 @@ module.exports = {
 			});
 		});
 	}
+
+	, buildNewPost : function (req, res) {
+		res.render('./admin/post/newpost');
+	}
 }

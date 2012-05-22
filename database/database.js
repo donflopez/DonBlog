@@ -22,6 +22,8 @@ var PostSchema = new Schema({
                     , lastEdited: Date
                     , comments: [Comment]
                     , category: String
+                    , views: Number
+                    , isDraft: Boolean
                     }),
                       Post;
 

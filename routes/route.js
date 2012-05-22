@@ -28,6 +28,10 @@ function route (app) {
 		cGeneral.buildEditorPage(req, res);
 	});
 
+	app.get('/newpost', function(req, res){
+		cGeneral.buildNewPost(req, res);
+	});
+
 }
 
 /*=================

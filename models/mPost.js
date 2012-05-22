@@ -10,6 +10,8 @@ function examplePost (){
 			post.tag.push('example');
 			post.lastEdited= null;
 			post.category = 'Example';
+			post.views = 0;
+			post.isDraft = false;
 			post.save();
 	});
 }
@@ -26,8 +28,14 @@ db.Post.findOne({}, function(err, post){
 });
 
 module.exports = {
-	fiveLatestPost : function(cb) {
-		db.Post.where().limit(5).run(function(err, posts){
+	  fiveLatestPost : function(cb) {
+		db.Post.where('isDraft', false).limit(5).run(function(err, posts){
+			cb(posts);
+		});
+	}
+
+	, fiveMostViews : function(cb) {
+		db.Post.where('views').desc().limit(5).run(function(err, posts){
 			cb(posts);
 		});
 	}
