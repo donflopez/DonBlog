@@ -13,6 +13,8 @@ function examplePost (){
 			post.views = 0;
 			post.isDraft = false;
 			post.save();
+			editor.post++;
+			editor.save();
 	});
 }
 
@@ -37,6 +39,33 @@ module.exports = {
 	, fiveMostViews : function(cb) {
 		db.Post.where('views').desc().limit(5).run(function(err, posts){
 			cb(posts);
+		});
+	}
+
+	, newPost : function(data, cb) {
+		db.Editor.findOne({}, function(err, editor){
+			var post = new db.Post();
+				post.title = data.title;
+				post.body = data.body;
+				post.date = new Date();
+				post.author = editor._id;
+				post.tag.push(data.tag);
+				post.lastEdited= null;
+				post.category = data.category;
+				post.views = 0;
+				post.isDraft = data.isDraft;
+				post.save();
+				editor.post++;
+				editor.save();
+				cb(post._id);
+		});
+	}
+
+	, getPost : function(id, cb) {
+		db.Post.findById(id, function(err, post){
+			post.views++;
+			post.save();
+			cb(post);
 		});
 	}
 }

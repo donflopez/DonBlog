@@ -1,0 +1,16 @@
+.post
+	.title
+		h1 #{post.title}
+		span.comment Comments: #{post.comments.length}
+	.date
+		span On: #{post.date.getDate()}/#{post.date.getMonth()}/#{post.date.getFullYear()}
+	.category
+		p Category: #{post.category}
+	.autor
+
+	.desc
+		p #{post.body}
+	.footer
+		.tag
+			p Tags:  #{post.tag}
+		.latestedit

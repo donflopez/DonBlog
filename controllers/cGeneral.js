@@ -37,4 +37,16 @@ module.exports = {
 	, buildNewPost : function (req, res) {
 		res.render('./admin/post/newpost');
 	}
+
+	, saveNewPost : function (req, res) {
+		post.newPost(req.body, function(id){
+			res.redirect('/post/'+id);
+		});
+	}
+
+	, viewPost : function (req, res) {
+		post.getPost(req.params.id, function(post){
+			res.render('./normal/post', {post:post});
+		});
+	}
 }

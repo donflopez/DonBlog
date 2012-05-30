@@ -2,6 +2,8 @@
 
 Simple node blog app usign [express](http://expressjs.com), [Socket.io](http://socket.io) and [Backbone.js](http://documentcloud.github.com/backbone) in the future.
 
+With this app you can have a simple blog for your personal use.
+
 This app it's made for my personal blog and I'll make a tutorial with this.
 
 ## License GNU GPL

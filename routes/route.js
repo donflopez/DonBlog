@@ -32,6 +32,14 @@ function route (app) {
 		cGeneral.buildNewPost(req, res);
 	});
 
+	app.post('/newpost', function(req, res){
+		cGeneral.saveNewPost(req, res);
+	});
+
+	app.get('/post/:id', function(req, res){
+		cGeneral.viewPost(req, res);
+	})
+
 }
 
 /*=================
