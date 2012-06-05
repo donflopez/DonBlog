@@ -20,7 +20,7 @@ var cGeneral = require('../controllers/cGeneral');
 function route (app) {
 	cGeneral.helperLayout(app);
 	
-	app.get('/', function(req, res){
+	app.get('/', function(req, res, next){
 		cGeneral.buildHome(req, res);
 	});
 

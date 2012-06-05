@@ -14,3 +14,14 @@
 		.tag
 			p Tags:  #{post.tag}
 		.latestedit
+
+.comments
+	.title
+		h1 Comments
+	- each comment in post.comments
+		.acomment
+			.user
+				span #{comment.user}
+				span #{comment.date}
+			.cbody
+				span #{comment.body}

@@ -35,7 +35,12 @@ module.exports = {
 	}
 
 	, buildNewPost : function (req, res) {
-		res.render('./admin/post/newpost');
+		if(req.user.role==1){
+			res.render('./admin/post/newpost');
+		}
+		else{
+			res.render('./404')
+		}
 	}
 
 	, saveNewPost : function (req, res) {

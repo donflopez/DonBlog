@@ -31,7 +31,7 @@ db.Post.findOne({}, function(err, post){
 
 module.exports = {
 	  fiveLatestPost : function(cb) {
-		db.Post.where('isDraft', false).limit(5).run(function(err, posts){
+		db.Post.where('isDraft', false).desc('date').limit(5).run(function(err, posts){
 			cb(posts);
 		});
 	}
@@ -53,7 +53,12 @@ module.exports = {
 				post.lastEdited= null;
 				post.category = data.category;
 				post.views = 0;
-				post.isDraft = data.isDraft;
+				if(data.isDraft == true){
+					post.isDraft = true;
+				}
+				else{
+					post.isDraft = false;
+				}
 				post.save();
 				editor.post++;
 				editor.save();
@@ -67,5 +72,14 @@ module.exports = {
 			post.save();
 			cb(post);
 		});
+	}
+
+	, newComment : function (data, cb) {
+		db.Post.findById(data.id, function(err, post){
+			post.comments.push({  user:data.user
+								, date:new Date()
+								, body:data.body
+								});
+		})
 	}
 }

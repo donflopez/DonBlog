@@ -27,7 +27,22 @@ function initEditorPage (){
 db.Editor.findOne({}, function(err, editor){
 	console.log('Checking editor: ');
 	if(editor){
-		console.log('\t There is a editor.');
+    console.log('\t There is a editor.');
+    if(!editor.userId){
+      console.log('\t The editor do not have an user asociated.');
+      db.User.findOne({}, function(err, user){
+        if(user){
+          user.role=1;
+          user.save();
+          editor.userId=user.id;
+          editor.save();
+          console.log('\t User asociated to an editor.');
+        }
+        else{
+          console.log('You must register an user and restart the server.');
+        }
+      });
+    }
 	}
 	else {
 		initEditor();

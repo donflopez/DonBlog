@@ -2,7 +2,8 @@
 	- each post in posts
 		.post
 			.title
-				h1 #{post.title}
+				h1 
+					a(href='/post/'+post.id) #{post.title}
 				span.comment Comments: #{post.comments.length}
 			.date
 				span On: #{post.date.getDate()}/#{post.date.getMonth()}/#{post.date.getFullYear()}
