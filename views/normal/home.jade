@@ -1,4 +1,4 @@
-.bodypost.span7
+#left
 	- each post in posts
 		.post
 			.title
@@ -17,6 +17,10 @@
 				.tag
 					p Tags:  #{post.tag}
 				.latestedit
-
-
-.span3
+#menu
+	input(type='text', name='search', placeholder='Search...')
+	if user
+		if user.role == 1
+			a(href='/admin') + Administration
+			p
+			a(href='/newpost') + New post

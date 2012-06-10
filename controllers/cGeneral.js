@@ -21,6 +21,10 @@ module.exports = {
 		});
 	}
 
+	/*
+		EDITOR
+	*/
+
 	//This function return the editor page with all of
 	//necesary data.
 	, buildEditorPage : function (req, res) {
@@ -34,12 +38,16 @@ module.exports = {
 		});
 	}
 
+	/*
+		POSTS
+	*/
+
 	, buildNewPost : function (req, res) {
 		if(req.user.role==1){
 			res.render('./admin/post/newpost');
 		}
 		else{
-			res.render('./404')
+			res.render('./404');
 		}
 	}
 
@@ -53,5 +61,20 @@ module.exports = {
 		post.getPost(req.params.id, function(post){
 			res.render('./normal/post', {post:post});
 		});
+	}
+
+	/*
+		ADMIN
+	*/
+
+	, admin : function (req, res) {
+		if(req.user.role==1){
+			site.dashboard(function(data){
+				res.render('./admin/dashboard', {data:data, layout:'./admin/layout'});
+			});
+		}
+		else{
+			res.render('./404');
+		}
 	}
 }

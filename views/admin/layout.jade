@@ -9,17 +9,14 @@ html
 		script(src='http://code.jquery.com/jquery-1.7.1.min.js')
 		script(src='/socket.io/socket.io.js')
 		script(src='http://documentcloud.github.com/underscore/underscore-min.js')
-		script(src='http://documentcloud.github.com/backbone/backbone.js')
 		script(src='/bs/js/bootstrap.min.js')
 	body
 		header
 			.nav
-				- each link in help.site.nav
-					a(href=link.direction) #{link.name}
-				- if (everyauth.loggedIn)
-					a(href='/aboutme').login.user #{everyauth.user.name.first}
-				- else
-					a(href='/login').login Accede
+				a(href='/admin/users') Users
+				a(href='/admin/posts') Posts
+				a(href='/admin/editor') Editor
+				a(href='/').user.login Home
 		.body
 			!=body
 		footer

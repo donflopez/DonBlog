@@ -1,10 +1,10 @@
-# Donblog
+# Donblog v0.0.9
 
 Simple node blog app usign [express](http://expressjs.com), [Socket.io](http://socket.io) and [Backbone.js](http://documentcloud.github.com/backbone) in the future.
 
 With this app you can have a simple blog for your personal use.
 
-For use this app clone the proyect and use the command `npm install` next put `node app.js` and if the proyect create a database with example data.
+For use this app clone the proyect and use the command `npm install` next put `node app.js` and the proyect create a database with example data.
 
 This app it's made for my personal blog and I'll make a tutorial with this.
 

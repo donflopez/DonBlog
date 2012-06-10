@@ -1,4 +1,8 @@
 .span5
+	- if ('undefined' !== typeof errors && errors.length)
+		ul#errors
+		- each error in errors
+			li.error= error
 	form(action='/login', method='POST')
 		label(for=everyauth.password.loginFormFieldName) Email:
 		input(type='text', name=everyauth.password.loginFormFieldName)

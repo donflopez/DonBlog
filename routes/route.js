@@ -38,7 +38,15 @@ function route (app) {
 
 	app.get('/post/:id', function(req, res){
 		cGeneral.viewPost(req, res);
-	})
+	});
+
+	/*^^^^^^^^^^^
+		ADMIN
+	^^^^^^^^^^^*/
+
+	app.get('/admin', function(req, res){
+		cGeneral.admin(req, res);
+	});
 
 }
 

@@ -2,6 +2,7 @@ var db = require('../database/database');
 
 function initSite (){
 	var site = new db.Site();
+		site.name = 'DonBlog';
 		site.copy = '© Donflopez 2012';
 		site.nav.push({name:'Home', direction:'/'});
 		site.nav.push({name:'Aboutme', direction:'/aboutme'});
@@ -21,9 +22,21 @@ db.Site.findOne({}, function(err, site){
 });
 
 module.exports = {
-	data : function (cb) {
+	  data : function (cb) {
 		db.Site.findOne({}, function(err, site){
 			cb(site);
+		});
+	}
+
+	/*
+		ADMIN
+	*/
+
+	, dashboard : function (cb) {
+		var data = {};
+		db.User.find({}, function(err, users){
+			data.users = users.length;
+			cb(data);
 		});
 	}
 }
