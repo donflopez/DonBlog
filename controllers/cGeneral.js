@@ -63,6 +63,22 @@ module.exports = {
 		});
 	}
 
+	, newComment : function (req, res) {
+		if(req.user.role == 1){
+			//Do this in the model...
+			var data = {};
+			data.id = req.params.id;
+			data.user = req.user.id;
+			data.body = req.body.body;
+			post.newComment(data, function(post){
+				res.render('./normal/post', {post:post});
+			});
+		}
+		else {
+			res.render('./404');
+		}
+	}
+
 	/*
 		ADMIN
 	*/

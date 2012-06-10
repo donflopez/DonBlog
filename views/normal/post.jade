@@ -17,6 +17,11 @@
 
 .comments
 	.title
+		if user
+			h1 Add a comment
+			form(action='/newcomment/'+post.id, method='POST')
+				textarea(name='body', id='commentbody', placeholder='Put here your comment')
+				input(type='submit', id='send', value='Send Comment')
 		h1 Comments
 	- each comment in post.comments
 		.acomment

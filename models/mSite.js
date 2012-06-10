@@ -35,8 +35,11 @@ module.exports = {
 	, dashboard : function (cb) {
 		var data = {};
 		db.User.find({}, function(err, users){
-			data.users = users.length;
-			cb(data);
+			db.Post.find({}, function(err, posts){
+				data.users = users.length;
+				data.posts = posts.length;
+				cb(data);
+			})
 		});
 	}
 }

@@ -166,6 +166,11 @@ h1 {
   font-size: 30px;
   display: inline-block;
 }
+#commentbody {
+  margin-right: 15px;
+  width: 750px;
+  height: 200px;
+}
 .acomment {
   border: 1px solid #49281f;
   border-radius: 4px;

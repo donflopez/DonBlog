@@ -80,6 +80,10 @@ module.exports = {
 								, date:new Date()
 								, body:data.body
 								});
+			post.save(function(err){
+				if (err) console.log('Error: '+err);
+			});
+			cb(post);
 		})
 	}
 }

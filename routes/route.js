@@ -40,6 +40,10 @@ function route (app) {
 		cGeneral.viewPost(req, res);
 	});
 
+	app.post('/newcomment/:id', function(req, res){
+		cGeneral.newComment(req, res);
+	});
+
 	/*^^^^^^^^^^^
 		ADMIN
 	^^^^^^^^^^^*/
