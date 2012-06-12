@@ -166,12 +166,22 @@ h1 {
   font-size: 30px;
   display: inline-block;
 }
+.cuser {
+  margin: 10px;
+}
+.cbody {
+  margin: 10px 20px;
+}
 #commentbody {
   margin-right: 15px;
   width: 750px;
   height: 200px;
 }
+#commentDate {
+  float: right;
+}
 .acomment {
+  margin-top: 15px;
   border: 1px solid #49281f;
   border-radius: 4px;
   box-shadow: 0px 1px 4px #49281f;

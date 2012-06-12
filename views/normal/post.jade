@@ -9,7 +9,7 @@
 	.autor
 
 	.desc
-		p #{post.body}
+		!= post.body
 	.footer
 		.tag
 			p Tags:  #{post.tag}
@@ -23,10 +23,12 @@
 				textarea(name='body', id='commentbody', placeholder='Put here your comment')
 				input(type='submit', id='send', value='Send Comment')
 		h1 Comments
+	- var i = 0
 	- each comment in post.comments
+		- i++
 		.acomment
-			.user
-				span #{comment.user}
-				span #{comment.date}
+			.cuser
+				span ##{i} | #{comment.username}
+				span#commentDate #{comment.date.getDate()}/#{comment.date.getMonth()}/#{comment.date.getFullYear()}
 			.cbody
 				span #{comment.body}

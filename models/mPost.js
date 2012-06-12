@@ -1,4 +1,5 @@
-var db = require('../database/database');
+var   db = require('../database/database')
+	, mark = require('../node_modules/markdown').markdown;
 
 function examplePost (){
 	db.Editor.findOne({}, function(err, editor){
@@ -29,6 +30,24 @@ db.Post.findOne({}, function(err, post){
 	}
 });
 
+//Private functions
+
+function buildComment (count, comments, cb){
+	if(comments[count]){
+		db.User.findById(comments[count].user, function(err, user){
+			comments[count].username = user.name.first + ' ' + user.name.last;
+			count++
+			buildComment(count, comments, cb);
+		});
+	}
+	else{
+		cb(comments);
+	}
+}
+
+/////////
+//Public Functions
+
 module.exports = {
 	  fiveLatestPost : function(cb) {
 		db.Post.where('isDraft', false).desc('date').limit(5).run(function(err, posts){
@@ -46,7 +65,7 @@ module.exports = {
 		db.Editor.findOne({}, function(err, editor){
 			var post = new db.Post();
 				post.title = data.title;
-				post.body = data.body;
+				post.body = mark.toHTML(data.body);
 				post.date = new Date();
 				post.author = editor._id;
 				post.tag.push(data.tag);
@@ -70,7 +89,13 @@ module.exports = {
 		db.Post.findById(id, function(err, post){
 			post.views++;
 			post.save();
-			cb(post);
+			if(post.comments){
+				var count = 0;
+				buildComment(count, post.comments, function(comments){
+					post.comments = comments;
+					cb(post);
+				});
+			}
 		});
 	}
 
