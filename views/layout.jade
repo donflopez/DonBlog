@@ -11,7 +11,11 @@ html
 		script(src='http://documentcloud.github.com/underscore/underscore-min.js')
 		script(src='http://documentcloud.github.com/backbone/backbone.js')
 		script(src='/bs/js/bootstrap.min.js')
+		script(src='/js/miniNotification.js')
 	body
+		#notification
+			a(href='https://github.com/donflopez/DonBlog') Fork me on GitHub
+			p Click here for hide.
 		header
 			.nav
 				- each link in help.site.nav

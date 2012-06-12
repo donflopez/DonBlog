@@ -29,6 +29,6 @@
 		.acomment
 			.cuser
 				span ##{i} | #{comment.username}
-				span#commentDate #{comment.date.getDate()}/#{comment.date.getMonth()}/#{comment.date.getFullYear()}
+				span#commentDate #{comment.date.getDate()}/#{comment.date.getMonth()}/#{comment.date.getFullYear()} at #{comment.date.getHours()}:#{comment.date.getMinutes()} #{comment.date.getSeconds()}s
 			.cbody
 				span #{comment.body}

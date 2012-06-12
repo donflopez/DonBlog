@@ -108,7 +108,11 @@ module.exports = {
 			post.save(function(err){
 				if (err) console.log('Error: '+err);
 			});
-			cb(post);
+			var count = 0;
+			buildComment(count, post.comments, function(comments){
+				post.comments = comments;
+				cb(post);
+			});
 		})
 	}
 }
