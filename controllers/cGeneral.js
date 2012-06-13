@@ -63,6 +63,12 @@ module.exports = {
 		});
 	}
 
+	, searchPost : function (req, res) {
+		post.search(req.body.search, function(posts){
+			res.render('./normal/search', {posts:posts});
+		});
+	}
+
 	, newComment : function (req, res) {
 		if(req.user.role == 1){
 			//Do this in the model...

@@ -18,15 +18,9 @@
 					p Tags:  #{post.tag}
 				.latestedit
 #menu
-	form(action='/search/post', method='POST')
-		input(type='text', name='search', placeholder='Search...')
+	input(type='text', name='search', placeholder='Search...')
 	if user
 		if user.role == 1
 			a(href='/admin') + Administration
 			p
 			a(href='/newpost') + New post
-
-script
-	$(function() {
-		$('#notification').miniNotification();
-	});

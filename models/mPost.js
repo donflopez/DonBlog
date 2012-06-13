@@ -99,6 +99,12 @@ module.exports = {
 		});
 	}
 
+	, search : function(word, cb) {
+		db.Post.find({'title' : new RegExp(word, 'i')}, function(err, posts){
+			cb(posts);
+		});
+	}
+
 	, newComment : function (data, cb) {
 		db.Post.findById(data.id, function(err, post){
 			post.comments.push({  user:data.user

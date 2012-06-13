@@ -44,6 +44,10 @@ function route (app) {
 		cGeneral.newComment(req, res);
 	});
 
+	app.post('/search/post', function(req, res){
+		cGeneral.searchPost(req, res);
+	});
+
 	/*^^^^^^^^^^^
 		ADMIN
 	^^^^^^^^^^^*/
