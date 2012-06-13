@@ -8,6 +8,8 @@ For use this app clone the proyect and use the command `npm install` next put `n
 
 This app it's made for my personal blog and I'll make a tutorial with this.
 
+## I need testers please!!
+
 ## License GNU GPL
 
 Copyright (C) 2012  Francisco López
