@@ -13,7 +13,8 @@
       "ua-parser": ">= 0.2.3",
       "emailjs": ">= 0.2.8",
       "jade": ">= 0.20.3",
-      "socket.io": ">= 0.9"
+      "socket.io": ">= 0.9",
+      "markdown" : "latest"
     },
    "devDependencies": {
 

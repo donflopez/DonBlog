@@ -1,5 +1,6 @@
 var editor = require('../models/mEditor')
   , site = require('../models/mSite')
+  , user = require('../models/mUser')
   , post = require('../models/mPost');
 
 module.exports = {
@@ -103,5 +104,11 @@ module.exports = {
 		else{
 			res.render('./404');
 		}
+	}
+
+	, listUser : function (req, res) {
+		user.list(function (users){
+			res.render('./admin/users/users', {users:users, layout:'./admin/layout'});
+		});
 	}
 }

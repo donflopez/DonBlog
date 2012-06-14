@@ -56,6 +56,10 @@ function route (app) {
 		cGeneral.admin(req, res);
 	});
 
+	app.get('/admin/users', function(req, res){
+		cGeneral.listUser(req, res);
+	});
+
 }
 
 /*=================
