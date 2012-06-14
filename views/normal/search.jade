@@ -18,7 +18,8 @@
 					p Tags:  #{post.tag}
 				.latestedit
 #menu
-	input(type='text', name='search', placeholder='Search...')
+	form(action='/search/post', method='POST')
+		input(type='text', name='search', placeholder='Search...')
 	if user
 		if user.role == 1
 			a(href='/admin') + Administration

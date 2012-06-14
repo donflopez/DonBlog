@@ -52,9 +52,14 @@ module.exports = {
 	}
 
 	, saveNewPost : function (req, res) {
-		post.newPost(req.body, function(id){
-			res.redirect('/post/'+id);
-		});
+		if(req.user.role==1){
+			post.newPost(req.body, function(id){
+				res.redirect('/post/'+id);
+			});
+		}
+		else {
+			res.render('./404');
+		}
 	}
 
 	, viewPost : function (req, res) {
