@@ -60,6 +60,10 @@ function route (app) {
 		cGeneral.listUser(req, res);
 	});
 
+	app.post('/admin/search/user', function(req, res){
+		cGeneral.searchUser(req, res);
+	});
+
 }
 
 /*=================

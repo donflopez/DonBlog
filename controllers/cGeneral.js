@@ -111,4 +111,10 @@ module.exports = {
 			res.render('./admin/users/users', {users:users, layout:'./admin/layout'});
 		});
 	}
+
+	, searchUser : function (req, res) {
+		user.search(req.body.search, function(users){
+			res.render('./admin/users/users', {users:users, layout:'./admin/layout'});
+		});
+	}
 }

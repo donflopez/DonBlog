@@ -42,7 +42,7 @@ function init (routes, database) {
 	database.mongooseAuth.helpExpress(app);
 
 	//Iniciamos el servidor
-	app.listen(3002);
+	app.listen(3000);
 	var sio = io.listen(app);
 
 	routes.rsocket(sio);

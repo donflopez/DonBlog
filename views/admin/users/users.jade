@@ -1,2 +1,30 @@
-- each user in users
-	p #{user.name.first} #{user.email}
+#left
+	table.table
+		thead
+			tr
+				th Name
+				th Email
+				th Active
+				th Role
+				th Options
+		tbody
+			- each user in users
+				tr
+					td
+						#{user.name.first} #{user.name.last}
+					td
+						#{user.email}
+					td
+						if user.active
+							span.label.label-success Actived
+						else
+							span.label.label-inverse Unactived
+					td
+						#{user.role}
+					td
+						a(href='#') Info 
+						a(href='#') Edit
+#menu
+	form(action='/admin/search/user', method='POST')
+		input(type='text', name='search', placeholder='Search User...')
+		
