@@ -100,6 +100,12 @@ module.exports = {
 	}
 
 	, search : function(word, cb) {
+		db.Post.find({'title' : new RegExp(word, 'i'), 'isDraft': false}, function(err, posts){
+			cb(posts);
+		});
+	}
+
+	, adminSearch : function(word, cb) {
 		db.Post.find({'title' : new RegExp(word, 'i')}, function(err, posts){
 			cb(posts);
 		});
@@ -120,5 +126,17 @@ module.exports = {
 				cb(post);
 			});
 		})
+	}
+
+	, list : function (cb) {
+		db.Post.find({}, function(err, posts){
+			cb(posts);
+		});
+	}
+
+	, category : function (cat, cb) {
+		db.Post.find({'category': cat, 'isDraft':false}, function(err, posts){
+			cb(posts);
+		});
 	}
 }

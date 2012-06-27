@@ -94,8 +94,11 @@ h1 {
   color: #49281f;
 }
 /*  Posts  */
+.post {
+  margin-bottom: 40px;
+}
 .post h1 {
-  font-size: 45px;
+  font-size: 37px;
   display: inline-block;
 }
 h1 a {

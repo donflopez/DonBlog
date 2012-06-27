@@ -91,6 +91,14 @@ module.exports = {
 		}
 	}
 
+	, category : function (req, res) {
+		post.category(req.params.category, function(posts){
+			var data = {};
+			data.posts = posts;
+			res.render('./normal/home', data);
+		});
+	}
+
 	/*
 		ADMIN
 	*/
@@ -115,6 +123,18 @@ module.exports = {
 	, searchUser : function (req, res) {
 		user.search(req.body.search, function(users){
 			res.render('./admin/users/users', {users:users, layout:'./admin/layout'});
+		});
+	}
+
+	, listPost : function (req, res) {
+		post.list(function (posts){
+			res.render('./admin/post/posts', {posts:posts, layout:'./admin/layout'});
+		});
+	}
+
+	, adminSearchPost : function (req, res) {
+		post.adminSearch(req.body.search, function(posts){
+			res.render('./normal/search', {posts:posts, layout:'./admin/layout'});
 		});
 	}
 }

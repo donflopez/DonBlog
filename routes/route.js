@@ -48,6 +48,10 @@ function route (app) {
 		cGeneral.searchPost(req, res);
 	});
 
+	app.get('/category/:category', function(req, res){
+		cGeneral.category(req, res);
+	});
+
 	/*^^^^^^^^^^^
 		ADMIN
 	^^^^^^^^^^^*/
@@ -62,6 +66,14 @@ function route (app) {
 
 	app.post('/admin/search/user', function(req, res){
 		cGeneral.searchUser(req, res);
+	});
+
+	app.get('/admin/posts', function(req, res){
+		cGeneral.listPost(req, res);
+	})
+
+	app.post('/admin/search/post', function(req, res){
+		cGeneral.adminSearchPost(req, res);
 	});
 
 }

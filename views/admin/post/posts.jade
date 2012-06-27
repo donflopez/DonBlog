@@ -1,0 +1,25 @@
+#left
+	table.table
+		thead
+			tr
+				th Title
+				th Views
+				th Coments
+				th Draft
+		tbody
+			- each post in posts
+				tr
+					td
+						a(href='/post/'+post.id) #{post.title}
+					td
+						#{post.views}
+					td
+						#{post.comments.length}
+					td
+						if post.isDraft 
+							span.label.label-inverse Yes
+						else 
+							span.label.label-success No
+#menu
+	form(action='/admin/search/post', method='POST')
+		input(type='text', name='search', placeholder='Search post...')
