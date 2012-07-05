@@ -120,6 +120,14 @@ module.exports = {
 			post.save(function(err){
 				if (err) console.log('Error: '+err);
 			});
+			db.User.findById(data.user, function(err, user){
+				if(user.comments){
+					user.comments++;
+				}
+				else{
+					user.comments=1;
+				}
+			});
 			var count = 0;
 			buildComment(count, post.comments, function(comments){
 				post.comments = comments;

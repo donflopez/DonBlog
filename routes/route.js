@@ -76,6 +76,14 @@ function route (app) {
 		cGeneral.adminSearchPost(req, res);
 	});
 
+	app.get('/admin/user/:id', function(req, res){
+		cGeneral.viewUser(req, res);
+	});
+
+	app.get('/admin/user/del/:id', function(req, res){
+		cGeneral.deleteUser(req, res);
+	});
+
 }
 
 /*=================

@@ -96,6 +96,7 @@ UserSchema.plugin(mongooseAuth, {
           , role: Number
           , active: { type: Boolean, default: false }
           , avatar: String
+          , comments : { type: Number, default: 0}
         }
       , everyauth: {
             getLoginPath: '/login'

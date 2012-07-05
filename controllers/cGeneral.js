@@ -137,4 +137,16 @@ module.exports = {
 			res.render('./normal/search', {posts:posts, layout:'./admin/layout'});
 		});
 	}
+
+	, viewUser : function (req, res) {
+		user.viewUser(req.params.id, function(user){
+			res.render('./admin/users/user', {User:user, layout:'./admin/layout'});
+		});
+	}
+
+	, deleteUser : function (req, res) {
+		user.deleteUser(req.params.id, function(){
+			res.redirect('/admin/users');
+		});
+	}
 }
